@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class MinRandom {
-    java.util.Random random = new java.util.Random();
+    Random random = new Random();
 
     public int nextNumber(int lower, int upper) {
        int max = upper - lower;

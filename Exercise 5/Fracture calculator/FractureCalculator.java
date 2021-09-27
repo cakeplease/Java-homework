@@ -2,12 +2,12 @@ import java.util.*;
 
 class FractureCalculator {
     
-    private int numerator;
+    private double numerator;
 
-    private int denominator;
+    private double denominator;
 
 
-    public FractureCalculator(int numerator, int denominator) {
+    public FractureCalculator(double numerator, double denominator) {
         this.numerator = numerator;
         
         if (denominator == 0) {
@@ -17,21 +17,24 @@ class FractureCalculator {
         }
     }
 
-    public FractureCalculator(int numerator) {
+    public FractureCalculator(double numerator) {
       this.numerator = numerator;
       this.denominator = 1;
     }
 
-    public int getNumerator() {
+    public double getNumerator() {
         return this.numerator;
     }
 
-    public int getDenominator() {
+    public double getDenominator() {
         return this.denominator;
     }
     
-    public void add(int numerator, int denominator) {
+    public void add(double numerator, double denominator) {
         //finn felles nevner = nevner x nevner, teller = teller 1 x nevner 2 + teller 2 x nevner 1
+        if (denominator == 0) {
+            throw new IllegalArgumentException("Nevner kan ikke være null.");
+        }
 
         if (this.denominator == denominator) {
             this.numerator = this.numerator + numerator;
@@ -43,8 +46,10 @@ class FractureCalculator {
         
     }
 
-    public void substract(int numerator, int denominator) {
-
+    public void substract(double numerator, double denominator) {
+        if (denominator == 0) {
+            throw new IllegalArgumentException("Nevner kan ikke være null.");
+        }
         if (this.denominator == denominator) {
             this.numerator = this.numerator + numerator;
             this.denominator = denominator;
@@ -54,12 +59,18 @@ class FractureCalculator {
         }
     }
 
-    public void multiply(int numerator, int denominator) {
+    public void multiply(double numerator, double denominator) {
+        if (denominator == 0) {
+            throw new IllegalArgumentException("Nevner kan ikke være null.");
+        }
         this.numerator = this.numerator * numerator;
         this.denominator = this.denominator * denominator;
     }
 
-    public void devide(int numerator, int denominator) {
+    public void devide(double numerator, double denominator) {
+        if (denominator == 0  || numerator == 0) {
+            throw new IllegalArgumentException("Hverken teller eller nevner kan  være null.");
+        }
         this.numerator = this.numerator * denominator;
         this.denominator = this.denominator * numerator;
     }
@@ -73,8 +84,8 @@ class TestClass {
         FractureCalculator calculator3 = new FractureCalculator(2,4);
         FractureCalculator calculator4 = new FractureCalculator(10);
 
-        calculator1.add(1,3);
-        if (calculator1.getNumerator() == 2 && calculator1.getDenominator() == 3) {
+        calculator1.add(-1, 3);
+        if (calculator1.getNumerator() == 0 && calculator1.getDenominator() == 3) {
             System.out.println("Test 1 (addition) went successfully.");
         } else {
             System.out.println("Something went wrong in test 1.");
@@ -88,9 +99,9 @@ class TestClass {
         }
 
         
-        calculator3.multiply(10,6);
+        calculator3.multiply(-10,-6);
 
-        if (calculator3.getNumerator() == 20 && calculator3.getDenominator() == 24) {
+        if (calculator3.getNumerator() == -20 && calculator3.getDenominator() == -24) {
             System.out.println("Test 3 (multiplication) went successfully.");
         } else {
             System.out.println("Something went wrong in test 3.");
