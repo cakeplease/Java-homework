@@ -30,5 +30,8 @@ class Test {
     public static void main(String[] args) {
         NewString Sentence = new NewString("dette er en string");
         System.out.println(Sentence.removeLetter("e"));
+
+        NewString Sentence2 = new NewString("dette er en annen string");
+        System.out.println(Sentence.abbreviate());
     }
 }
