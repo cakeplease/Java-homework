@@ -45,8 +45,8 @@ public class Event {
         return date;
     }
 
-    public int getTime() {
-        return Integer.parseInt(date.substring(8, 12));
+    public String getTime() {
+        return date.substring(8, 12);
     }
 
     public void setName(String name) {

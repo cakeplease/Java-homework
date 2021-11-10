@@ -37,12 +37,15 @@ public class ClientProgram {
                 break;
             case 4:
                 getEventsFromInterval();
+                break;
+            case 5:
+                showAllEventsSorted();
+                break;
             case 6:
                 System.exit(0);
                 break;
             default:
                 System.out.println("Wrong input number, choose number from the list above.");
-
         }
     }
 
@@ -90,6 +93,10 @@ public class ClientProgram {
         }
     }
 
+    private void showAllEventsSorted() {
+        Events.getAllEventsSorted();
+    }
+
     private void getEventsBasedOnLocation() {
         System.out.print("Location: ");
         String location = input.next();
@@ -114,8 +121,11 @@ public class ClientProgram {
 
 
     public void testData() {
-        Events.register("Trondheim Rocks", "Trondheim", "Trondheim Kommune", "Konsert", "202206261000");
+        Events.register("Trondheim Rocks", "Trondheim", "Trondheim Kommune", "Konsert", "202206261400");
+        Events.register("Trondheim Rocks - vip", "Trondheim", "Trondheim Kommune", "Konsert", "202206261000");
+        Events.register("Ghost konsert", "Bergen", "Trondheim Kommune", "Konsert", "202206260900");
         Events.register("Kurs i swing", "Trondheim", "Danseri AS", "Kurs", "202112101200");
+        Events.register("Kurs i folkedans", "Trondheim", "Danseri AS", "Kurs", "202112100800");
         Events.register("VM i sjakk", "Oslo", "Sjakkfolk", "VM", "202112011700");
     }
 

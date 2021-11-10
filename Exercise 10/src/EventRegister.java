@@ -1,5 +1,4 @@
 import java.util.*;
-import java.lang.Integer.*;
 
 public class EventRegister {
 
@@ -40,6 +39,9 @@ public class EventRegister {
             }
         }
 
+        Comparator<Event> sortBasedOnTime = (Event a1, Event a2) -> a1.getTime().compareTo(a2.getTime());
+        Collections.sort(eventsBasedOnDate, sortBasedOnTime);
+
         return eventsBasedOnDate;
 
     }
@@ -59,13 +61,25 @@ public class EventRegister {
             }
         }
 
-        //eventsBasedOnInterval.sort(Comparator.comparing(Event.getTime()))
-
-        Comparator<Event> sortBasedOnTime = (Event a1, Event a2) -> (int)a1.getTime() - (int)a2.getTime();
+        Comparator<Event> sortBasedOnTime = (Event a1, Event a2) -> a1.getDate().compareTo(a2.getDate());
         Collections.sort(eventsBasedOnInterval, sortBasedOnTime);
 
         return eventsBasedOnInterval;
 
+    }
+
+    public void getAllEventsSorted() {
+        ArrayList<Event> copy = (ArrayList<Event>)this.eventList.clone();
+
+        if (copy.size() > 0) {
+            copy.sort(Comparator.comparing(Event::getLocation).thenComparing(Event::getType).thenComparing(Event::getDate));
+            System.out.println("There are " + copy.size() + " events.");
+            for (int i = 0; i < copy.size(); i++) {
+                System.out.println(copy.get(i).toString());
+            }
+        } else {
+            System.out.println("No events to show.");
+        }
     }
 
 
