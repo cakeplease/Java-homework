@@ -45,23 +45,23 @@ public class ClientProgram {
 
     private void showMenus(ArrayList<Menu> menus) {
         if (menus.size() > 0) {
-            System.out.println("Found " + menus.size() + " menus in search results: ");
+            System.out.println("Found " + menus.size() + " menu/menus in search results: ");
             for (int i = 0; i < menus.size(); i++) {
                 System.out.println(menus.get(i).toString());
             }
         } else {
-            System.out.println("No events to show");
+            System.out.println("No menus to show");
         }
     }
 
     private void showDishes(ArrayList<Dish> dishes) {
         if (dishes.size() > 0) {
-            System.out.println("Found " + dishes.size() + " dishes in search results: ");
+            System.out.println("\n Found " + dishes.size() + " dish/dishes in search results: ");
             for (int i = 0; i < dishes.size(); i++) {
                 System.out.println(dishes.get(i).toString());
             }
         } else {
-            System.out.println("No events to show");
+            System.out.println("No dishes to show");
         }
     }
 
@@ -133,5 +133,12 @@ public class ClientProgram {
         showMenus(MenuRegister.findAllMenusBasedOnPriceRange(from, to));
     }
 
+    public static void main(String[] args) {
+        ClientProgram ClientProgram = new ClientProgram();
+
+        while (true) {
+            ClientProgram.showMenu();
+        }
+    }
 
 }

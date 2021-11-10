@@ -55,7 +55,7 @@ public class MenuRegister {
 
     public void showAllDishes() {
         for (Dish dish : dishes) {
-            System.out.println("\n" + dish.getId() + "." + dish.getName() + "\n");
+            System.out.println(dish.getId() + "." + dish.getName() + "\n");
         }
     }
 }
