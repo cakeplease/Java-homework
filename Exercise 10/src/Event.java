@@ -10,9 +10,9 @@ public class Event {
 
     private String type;
 
-    private int date;
+    private String date;
 
-    public Event(int id, String name, String location, String organizer, String type, int date) {
+    public Event(int id, String name, String location, String organizer, String type, String date) {
         this.id = id;
         this.name = name;
         this.location = location;
@@ -41,13 +41,13 @@ public class Event {
         return type;
     }
 
-    public int getDate() {
+    public String getDate() {
         return date;
     }
 
-    //public int getTime() {
-      //  return Integer.parseInt(date.substring(8, 12));
-    //}
+    public int getTime() {
+        return Integer.parseInt(date.substring(8, 12));
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -65,13 +65,12 @@ public class Event {
         this.type = type;
     }
 
-    public void setDate(int date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
     @Override
     public String toString() {
-        String date = String.format("%.1f", this.getDate());
         String newDate = date.substring(6, 8) + "." + date.substring(4, 6) + "." + date.substring(0, 4) + " kl. " + date.substring(8, 10) + ":" + date.substring(10, 12);
         return "\n" + "Navn: " + name + "\n" +
                 "ID-nummer: " + id + "\n" +

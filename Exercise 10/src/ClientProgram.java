@@ -73,7 +73,7 @@ public class ClientProgram {
 
         date = date + time;
 
-        Events.register(name, location, organizer, type, Integer.parseInt(date));
+        Events.register(name, location, organizer, type, date);
         System.out.println(Events.eventList.get(Events.eventList.size() - 1));
         System.out.println(Events.eventList);
 
@@ -99,7 +99,7 @@ public class ClientProgram {
     private void getEventsBasedOnDate() {
         System.out.print("Date in following format yyyy.mm.dd : ");
         String date = input.next().replace(".", "");
-        showEvents(Events.findBasedOnDate(Integer.parseInt(date)));
+        showEvents(Events.findBasedOnDate(date));
     }
 
     private void getEventsFromInterval() {
@@ -109,17 +109,14 @@ public class ClientProgram {
         System.out.print("End date in following format yyyy.mm.dd : ");
         String endDate = input.next().replace(".", "");
 
-
-
-        showEvents(Events.findBasedOnInterval(Integer.parseInt(startDate), Integer.parseInt(endDate)));
+        showEvents(Events.findBasedOnInterval(startDate, endDate));
     }
 
 
     public void testData() {
-        Events.register("Trondheim Rocks", "Trondheim", "Trondheim Kommune", "Konsert", 202206261400);
-        Events.register("Trondheim Rocks", "Trondheim", "Trondheim Kommune", "Konsert", 202206261000);
-        Events.register("Kurs i swing", "Trondheim", "Danseri AS", "Kurs", 202112101200);
-        Events.register("VM i sjakk", "Oslo", "Sjakkfolk", "VM", 202112011700);
+        Events.register("Trondheim Rocks", "Trondheim", "Trondheim Kommune", "Konsert", "202206261000");
+        Events.register("Kurs i swing", "Trondheim", "Danseri AS", "Kurs", "202112101200");
+        Events.register("VM i sjakk", "Oslo", "Sjakkfolk", "VM", "202112011700");
     }
 
     public static void main(String[] args) {
