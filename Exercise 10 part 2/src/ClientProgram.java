@@ -10,6 +10,12 @@ public class ClientProgram {
     boolean hasStarted = false;
 
     public void showMenu() {
+
+        if (!hasStarted) {
+            testData();
+            hasStarted = true;
+        }
+
         System.out.println("Type 1 to register new dish.");
         System.out.println("Type 2 to find dish based on name.");
         System.out.println("Type 3 to find dishes of specific type.");
@@ -65,7 +71,7 @@ public class ClientProgram {
         }
     }
 
-    public void registerDish() {
+    private void registerDish() {
         System.out.print("Name: ");
         String name = input.next();
 
@@ -77,25 +83,26 @@ public class ClientProgram {
 
         System.out.print("Recipe: ");
         String recipe = input.next();
+        input.nextLine();
 
         MenuRegister.registerDish(name, type, price, recipe);
     }
 
-    public void findDishOfName() {
+    private void findDishOfName() {
         System.out.print("Name: ");
         String name = input.next();
 
         showDishes(MenuRegister.findDishOfName(name));
     }
 
-    public void findDishesOfType() {
+    private void findDishesOfType() {
         System.out.print("Type: ");
         String type = input.next();
 
         showDishes(MenuRegister.findDishesOfType(type));
     }
 
-    public void registerMenu() {
+    private void registerMenu() {
 
         ArrayList<Integer> dishIds = new ArrayList<Integer>();
         ArrayList<Dish> dishesToAdd = new ArrayList<Dish>();
@@ -107,6 +114,7 @@ public class ClientProgram {
             System.out.println("Type in ID of the dish you would like to add to the menu and then 0 to register the menu when you're finished:");
             int dishId = input.nextInt();
             dishIds.add(dishId);
+            System.out.println("Added to the menu.");
 
             if (dishId == 0) {
                 for (int i = 0; i < dishIds.size(); i++) {
@@ -118,12 +126,13 @@ public class ClientProgram {
                 }
 
                 MenuRegister.registerMenu(dishesToAdd);
+                System.out.println("Menu registered.");
                 isFinished = true;
             }
         }
     }
 
-    public void findMenusInPriceRange() {
+    private void findMenusInPriceRange() {
         System.out.print("From: ");
         int from = input.nextInt();
 
@@ -131,6 +140,14 @@ public class ClientProgram {
         int to = input.nextInt();
 
         showMenus(MenuRegister.findAllMenusBasedOnPriceRange(from, to));
+    }
+
+    private void testData() {
+        MenuRegister.registerDish("Tomatsuppe", "Forrett", 70, "Tilsett tomatpurre, hakkatomater, buljong og løk.");
+        MenuRegister.registerDish("Tacosuppe", "Middag", 209, "Tilsett bønner, hakkatomater, buljong.");
+        MenuRegister.registerDish("Oreokrem", "Dessert", 105, "Tilsett philadelphia ost, oreo kjeks, vaniljesukker, kremfløte.");
+        MenuRegister.registerDish("Jordbær milkshake", "Dessert", 89, "Tilsett jordbær, melk, vaniljeis og fløte på toppen.");
+
     }
 
     public static void main(String[] args) {

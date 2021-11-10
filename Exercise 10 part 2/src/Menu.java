@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Menu {
 
-    private ArrayList<Dish> dishes = new ArrayList<Dish>();
+    public ArrayList<Dish> dishes = new ArrayList<Dish>();
 
     public Menu(ArrayList<Dish> dishes) {
         this.dishes = dishes;
@@ -22,9 +22,20 @@ public class Menu {
         return totalPrice;
     }
 
+    public String getAllDishesNames() {
+        String dishesNames = "";
+
+        for (Dish dish : dishes) {
+            dishesNames = dishesNames + "\n" + dish.getName();
+        }
+
+        return dishesNames;
+    }
+
     @Override
     public String toString() {
-        return "Menu \n" +
-                "Dishes:" + dishes + "Total price: " + getTotalPrice() + "kr";
+
+        return "\nMenu\n" +
+                "Dishes:" + getAllDishesNames() + "\nTotal price: " + getTotalPrice() + "kr \n";
     }
 }

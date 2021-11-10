@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class MenuRegister {
-    ArrayList<Menu> menus = new ArrayList<Menu>();
-    ArrayList<Dish> dishes = new ArrayList<Dish>();
+    public ArrayList<Menu> menus = new ArrayList<Menu>();
+    public ArrayList<Dish> dishes = new ArrayList<Dish>();
 
     public void registerDish(String name, String type, int price, String recipe) {
         int id = dishes.size() + 1;
@@ -55,7 +55,7 @@ public class MenuRegister {
 
     public void showAllDishes() {
         for (Dish dish : dishes) {
-            System.out.println(dish.getId() + "." + dish.getName() + "\n");
+            System.out.println(dish.getId() + "." + dish.getName());
         }
     }
 }
