@@ -1,5 +1,5 @@
 public class Event {
-
+    //entydig = set alle til å være final
     private final int id;
 
     private String name;

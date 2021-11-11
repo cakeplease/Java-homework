@@ -28,7 +28,6 @@ public class ClientProgram {
             case 1:
                 registerEvent();
                 break;
-
             case 2:
                 getEventsBasedOnLocation();
                 break;
@@ -77,14 +76,15 @@ public class ClientProgram {
         date = date + time;
 
         Events.register(name, location, organizer, type, date);
+        System.out.println("\nFollowing event added:");
         System.out.println(Events.eventList.get(Events.eventList.size() - 1));
-        System.out.println(Events.eventList);
+        //System.out.println(Events.eventList);
 
     }
 
     private void showEvents(ArrayList<Event> events) {
         if (events.size() > 0) {
-            System.out.println("Found " + events.size() + " events in search results: ");
+            System.out.println("Found " + events.size() + " event(s) in search results: ");
             for (int i = 0; i < events.size(); i++) {
                 System.out.println(events.get(i).toString());
             }

@@ -1,8 +1,16 @@
 import java.util.ArrayList;
 
 public class MenuRegister {
-    public ArrayList<Menu> menus = new ArrayList<Menu>();
-    public ArrayList<Dish> dishes = new ArrayList<Dish>();
+    private ArrayList<Menu> menus = new ArrayList<Menu>();
+    private ArrayList<Dish> dishes = new ArrayList<Dish>();
+
+    public ArrayList<Menu> getMenus() {
+        return menus;
+    }
+
+    public ArrayList<Dish> getDishes() {
+        return dishes;
+    }
 
     public void registerDish(String name, String type, int price, String recipe) {
         int id = dishes.size() + 1;

@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Menu {
 
-    public ArrayList<Dish> dishes = new ArrayList<Dish>();
+    private ArrayList<Dish> dishes = new ArrayList<Dish>();
 
     public Menu(ArrayList<Dish> dishes) {
         this.dishes = dishes;

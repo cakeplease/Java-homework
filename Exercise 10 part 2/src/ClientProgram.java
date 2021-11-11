@@ -118,9 +118,9 @@ public class ClientProgram {
 
             if (dishId == 0) {
                 for (int i = 0; i < dishIds.size(); i++) {
-                    for (int j = 0; j < MenuRegister.dishes.size(); j++) {
-                        if (dishIds.get(i) == MenuRegister.dishes.get(j).getId()) {
-                            dishesToAdd.add(MenuRegister.dishes.get(j));
+                    for (int j = 0; j < MenuRegister.getDishes().size(); j++) {
+                        if (dishIds.get(i) == MenuRegister.getDishes().get(j).getId()) {
+                            dishesToAdd.add(MenuRegister.getDishes().get(j));
                         }
                     }
                 }
@@ -147,7 +147,6 @@ public class ClientProgram {
         MenuRegister.registerDish("Tacosuppe", "Middag", 209, "Tilsett bønner, hakkatomater, buljong.");
         MenuRegister.registerDish("Oreokrem", "Dessert", 105, "Tilsett philadelphia ost, oreo kjeks, vaniljesukker, kremfløte.");
         MenuRegister.registerDish("Jordbær milkshake", "Dessert", 89, "Tilsett jordbær, melk, vaniljeis og fløte på toppen.");
-
     }
 
     public static void main(String[] args) {
