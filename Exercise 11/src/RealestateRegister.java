@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.lang.Math;
 
 /**
  * Klasse som inneholder oversikt over alle eiendommene og metoder for å finne/fjerne/legge til ny eiendom.
@@ -64,7 +65,7 @@ public class RealestateRegister {
 
     /**
      * Hent alle eiendommene
-     * @return alle eiendommene i string format
+     * @return alle eiendommene i string format, hvis ingen er funnet viser "No entries"
      */
     public String getAll() {
         if (!realestates.isEmpty()) {
@@ -76,12 +77,12 @@ public class RealestateRegister {
             return allRealestates;
         }
 
-        return null;
+        return "No entries";
     }
 
     /**
      * Finn en spesifikk eiendom basert på kommunenummeret, gårdsnummeret og bruksnummeret.
-     * @return eiendom hvis funnet, null hvis ikke
+     * @return eiendom hvis funnet, "No search results" hvis ikke
      */
     public String find(int municipalityNumber, int lotNumber, int sectionNumber) {
         if (!realestates.isEmpty()) {
@@ -91,9 +92,14 @@ public class RealestateRegister {
                 }
             }
         }
-        return null;
+
+        return "No search results";
     }
 
+    /**
+     * Beregner gjennomsnittlig areal av alle eiendommene
+     * @return averageArea gjennomsnittlig areal
+     */
     public double calculateAverageArea() {
         double averageArea = 0.0;
         double totalArea = 0.0;
@@ -101,7 +107,7 @@ public class RealestateRegister {
             for (int i = 0; i < realestates.size(); i++) {
                 totalArea += realestates.get(i).getArea();
             }
-            averageArea = totalArea / realestates.size();
+            averageArea = Math.round(totalArea / realestates.size());
         }
 
         return averageArea;

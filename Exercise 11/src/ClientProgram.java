@@ -16,6 +16,9 @@ public class ClientProgram {
     private final int REMOVE_PROPERTY = 5;
     private final int EXIT = 9;
 
+    /**
+     * Lager ClientProgram objektet, registrerer test data og kjører menyen
+     */
     public static void main(String[] args) {
         ClientProgram ClientProgram = new ClientProgram();
         ClientProgram.testData();
@@ -32,12 +35,12 @@ public class ClientProgram {
         int menuChoice = 0;
 
         System.out.println("\n***** Property Register Application v0.1 *****\n");
-        System.out.println("1. Add property");
-        System.out.println("2. List all properties");
-        System.out.println("3. Search property");
+        System.out.println("1. Add real estate");
+        System.out.println("2. List all real estates");
+        System.out.println("3. Search real estate");
         System.out.println("4. Calculate average area");
         System.out.println("9. Quit");
-        System.out.println("\nPlease enter a number between 1 and 9.\n");
+        System.out.println("\nPlease enter a number between 1 and 9.");
 
         if (input.hasNextInt()) {
             menuChoice = input.nextInt();
@@ -61,7 +64,7 @@ public class ClientProgram {
             case REMOVE_PROPERTY:
                 removeRealestate();
             case EXIT:
-                System.out.println("Thank you for using the Properties app!\n");
+                System.out.println("Thank you for using the Real estate app!\n");
                 System.exit(0);
                 break;
             default:
@@ -78,7 +81,10 @@ public class ClientProgram {
         RealestateRegister.register(1445, "Gloppen", 69, 47, "Høiberg", 1339.4, "Elsa Indregård");
     }
 
-    public String registerNewRealestate() {
+    /**
+     * Registrerer ny eiendom basert på input fra brukeren
+     */
+    public void registerNewRealestate() {
         System.out.print("Enter municipality number: ");
         int municipalityNumber = input.nextInt();
 
@@ -109,23 +115,47 @@ public class ClientProgram {
         String ownerName = input.next();
         input.nextLine();
 
-        return RealestateRegister.register(municipalityNumber, municipalityName, lotNumber, sectionNumber, name, area, ownerName);
+        System.out.println(RealestateRegister.register(municipalityNumber, municipalityName, lotNumber, sectionNumber, name, area, ownerName));
     }
 
-    public String getAllRealestates() {
-        return null;
+    public void getAllRealestates() {
+        System.out.println(RealestateRegister.getAll());
     }
 
-    public String findRealestate() {
-        return null;
+    public void findRealestate() {
+        System.out.print("Enter municipality number: ");
+        int municipalityNumber = input.nextInt();
+
+        System.out.print("Enter lot number: ");
+        int lotNumber = input.nextInt();
+
+        System.out.print("Enter section number: ");
+        int sectionNumber = input.nextInt();
+
+        System.out.println(RealestateRegister.find(municipalityNumber, lotNumber, sectionNumber));
     }
 
-    public double calculateAverageArea() {
-        return 0.0;
+    public void calculateAverageArea() {
+        System.out.println(RealestateRegister.calculateAverageArea() + "m2");
     }
 
-    public String removeRealestate() {
-        return null;
+    public void removeRealestate() {
+        System.out.print("Enter municipality number: ");
+        int municipalityNumber = input.nextInt();
+
+        System.out.print("Enter lot number: ");
+        int lotNumber = input.nextInt();
+
+        System.out.print("Enter section number: ");
+        int sectionNumber = input.nextInt();
+
+        boolean isRemoved = RealestateRegister.remove(municipalityNumber, lotNumber, sectionNumber);
+
+        if (isRemoved) {
+            System.out.println("Realestate removed.");
+        } else {
+            System.out.println("Realestate to remove not found.");
+        }
     }
 
 }

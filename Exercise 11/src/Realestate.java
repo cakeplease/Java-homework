@@ -78,15 +78,14 @@ public class Realestate {
 
     @Override
     public String toString() {
-        return "Realestate{" +
-                "municipalityNumber=" + municipalityNumber +
-                ", municipalityName='" + municipalityName + '\'' +
-                ", lotNumber=" + lotNumber +
-                ", sectionNumber=" + sectionNumber +
-                ", name='" + name + '\'' +
-                ", area=" + area +
-                ", ownerName='" + ownerName + '\'' +
-                '}';
+        return "----Eiendom---- \n" +
+                "Kommunenummer: " + municipalityNumber + "\n" +
+                "Kommunenavn: " + municipalityName + "\n" +
+                "Gårdsnummer: " + lotNumber + "\n" +
+                "Bruksnummer: " + sectionNumber  + "\n" +
+                "Bruksnavn: " + name + "\n" +
+                "Areal i m2: " + area + "\n" +
+                "Navn på eier: " + ownerName + "\n";
     }
 
     /**
