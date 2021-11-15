@@ -1,5 +1,5 @@
 /**
- * Class Realestate
+ * Realestate klassen som inneholder eiendom og all detaljene
  * @version 0.1 2021-11-15
  * @Author Katarzyna Szlejter
  */
@@ -21,14 +21,15 @@ public class Realestate {
     private final String ownerName;
 
     /**
-     * Constructor for class Realestate
-     * @param municipalityNumber
-     * @param municipalityName
-     * @param lotNumber
-     * @param sectionNumber
-     * @param name
-     * @param area
-     * @param ownerName
+     * Konstruktør for Realestate klassen.
+     * Lager ny eiendom.
+     * @param municipalityNumber Kommunenummer
+     * @param municipalityName Kommunenavn
+     * @param lotNumber Gårdsnummer
+     * @param sectionNumber Bruksnummer
+     * @param name Bruksnavn (valgfritt), hvis eiendommen ikke har navn, blir denne satt til en tom string
+     * @param area Areal i m2
+     * @param ownerName Navn på eier
      */
     public Realestate(int municipalityNumber, String municipalityName, int lotNumber, int sectionNumber, String name, double area, String ownerName) {
         this.municipalityNumber = municipalityNumber;
@@ -66,14 +67,6 @@ public class Realestate {
 
     public String getOwnerName() {
         return ownerName;
-    }
-
-    /**
-     * Returns unique number consisting of municipality number, lot number and section number.
-     * @return String in following format municipality number - lot number / section number
-     */
-    public String getUniqueID() {
-        return municipalityNumber + "-" + lotNumber + "/" + sectionNumber;
     }
 
     @Override
