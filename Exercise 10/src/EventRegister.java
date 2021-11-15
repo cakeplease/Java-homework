@@ -1,11 +1,13 @@
 import java.util.*;
-
+/**
+ * @Author
+ */
 public class EventRegister {
 
     public ArrayList<Event> eventList = new ArrayList<Event>();
 
     public Event register(String name, String location, String organizer, String type, String date) {
-        int id = eventList.size() + 1;
+        int id = eventList.size() + 1; //TODO
         Event newEvent = new Event(id, name, location, organizer, type, date);
 
         eventList.add(newEvent);
@@ -25,6 +27,11 @@ public class EventRegister {
        return eventsBasedOnLocation;
     }
 
+    /**
+     *
+     * @param date
+     * @return
+     */
     public ArrayList<Event> findBasedOnDate(String date) {
         ArrayList<Event> eventsBasedOnDate = new ArrayList<Event>();
 
@@ -67,7 +74,9 @@ public class EventRegister {
         return eventsBasedOnInterval;
 
     }
-
+    /**
+     * @Author
+     */
     public void getAllEventsSorted() {
         ArrayList<Event> copy = (ArrayList<Event>)this.eventList.clone();
 
